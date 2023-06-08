@@ -1,0 +1,11 @@
+.cart
+{
+    width: 2rem;
+    padding-right: 5%;
+}
+
+.cartContainer
+{
+    display: flex;
+    flex-flow: row nowrap;
+}
