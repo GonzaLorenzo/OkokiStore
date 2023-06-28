@@ -5,7 +5,7 @@ const ItemDetail = ({ id, name, price, img }) => {
     <div className='itemDetails'>
         <h2>{name}</h2>
         <h4>Price: ${price}</h4>
-        <p>Description: TBH</p>
+        <p>Description: TBD</p>
         <img className='itemImg' src={img} alt={name}/>
     </div>
   )
