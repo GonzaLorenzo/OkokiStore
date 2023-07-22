@@ -1,4 +1,4 @@
-const myProducts = [
+/* const myProducts = [
     { id: "1", name: "Duramo Protect", price: 120, stock: 10,img: "../img/Shoes/DuramoProtect.png", categoryID: "2"},
     { id: "2", name: "SolarGlide 6", price: 90, stock: 10,img: "../img/Shoes/Solarglide.png", categoryID: "2"},
     { id: "3", name: "Evostripe Core", price: 75, stock: 10,img: "../img/Clothing/Evostripe.jpeg", categoryID: "1"},
@@ -29,4 +29,4 @@ export const getCategory = (categoryID) =>{
             res(categoryProducts);
         }, 2000)
     })
-}
+} */

@@ -25,7 +25,7 @@ const ItemDetail = ({ id, name, price, img, stock }) => {
         <img className='itemImg' src={img} alt={name}/>
 
         {
-            addAmount > 0 ? (<Link to="/cart"> Purchase </Link>) : (<ItemCount start={1} stock={stock} amount={amountHandler} ></ItemCount>)
+            addAmount > 0 ? (<Link to="/cart"> Go to cart </Link>) : (<ItemCount start={1} stock={stock} amount={amountHandler} ></ItemCount>)
         }
     </div>
   )
