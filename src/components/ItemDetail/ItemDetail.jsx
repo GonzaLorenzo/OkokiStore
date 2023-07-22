@@ -8,7 +8,6 @@ const ItemDetail = ({ id, name, price, img, stock }) => {
   const [addAmount, setAmount] = useState(0);
   const {addToCart} = useContext(CartContext);
 
-
   const amountHandler = (amount) => {
     setAmount(amount);
     
@@ -21,6 +20,7 @@ const ItemDetail = ({ id, name, price, img, stock }) => {
     <div className='itemDetails'>
         <h2>{name}</h2>
         <h4>Price: ${price}</h4>
+        <p>Stock: {stock}</p>
         <p>Description: TBD</p>
         <img className='itemImg' src={img} alt={name}/>
 

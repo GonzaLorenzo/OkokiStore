@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import { db } from "../../services/config";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, updateDoc, doc, getDoc } from "firebase/firestore";
 
 const Checkout = () =>
 {
@@ -42,10 +42,23 @@ const Checkout = () =>
             name,
             surname,
             phone,
-            email
+            email,
+            date: new Date()
         };
 
-        addDoc(collection(db, "orders"), order)
+        Promise.all(
+            order.items.map(async (productOrder) => {
+                const productRef = doc(db, "inventory", productOrder.id);
+                const productDoc = await getDoc(productRef);
+                const currentStock = productDoc.data().stock;
+
+                await updateDoc(productRef, {
+                    stock: currentStock - productOrder.amount
+                });
+            })
+        )
+        .then(()=>{
+            addDoc(collection(db, "orders"), order)
             .then(docRef =>
                 {
                     setOrderID(docRef.id);
@@ -56,6 +69,12 @@ const Checkout = () =>
                 console.log(error);
                 setError("There has been an error processing your request, try again later.")
             })
+        })
+        .catch((error) => 
+        {
+            console.log("Error updating stock.", error);
+            setError("Error updating stock, try again later.");
+        })
     }
 
     return(
@@ -63,7 +82,7 @@ const Checkout = () =>
             <h2>Checkout</h2>
             <form onSubmit={formHandler}>
                 {cart.map(product => (
-                    <div>
+                    <div key={product.id}>
                         <p>{product.item.name} x {product.amount}</p>
                         <p>Price: $ {product.item.price}</p>
                     </div>
