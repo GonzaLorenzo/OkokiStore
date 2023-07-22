@@ -1,17 +1,17 @@
 # Okoki Store
 This is a basic e-commerce project created for a React course. The application allows users to view a list of supermarket products and make online purchases. The products and purchase orders are stored in Firebase.
 
-## Tecnologías utilizadas
+## Technologies Used
 - Vite
 - React
 - React Router
 - Firebase
 
 ## Features
-- Ver una lista de productos disponibles
-- Agregar productos al carrito de compras
-- Ver el carrito de compras
-- Realizar una orden de compra
+- View a list of available products
+- Add products to the shopping cart
+- View the shopping cart
+- Place an order
 
 ## Installation
 
