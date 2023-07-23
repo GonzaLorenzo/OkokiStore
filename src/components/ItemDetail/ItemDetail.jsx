@@ -4,7 +4,7 @@ import { CartContext } from '../../context/CartContext'
 import { Link } from 'react-router-dom'
 import ItemCount from '../ItemCount/ItemCount'
 
-const ItemDetail = ({ id, name, price, img, stock }) => {
+const ItemDetail = ({ id, name, price, img, stock, description }) => {
   const [addAmount, setAmount] = useState(0);
   const {addToCart} = useContext(CartContext);
 
@@ -21,7 +21,7 @@ const ItemDetail = ({ id, name, price, img, stock }) => {
         <h2>{name}</h2>
         <h4>Price: ${price}</h4>
         <p>Stock: {stock}</p>
-        <p>Description: TBD</p>
+        <p>{description}</p>
         <img className='itemImg' src={img} alt={name}/>
 
         {
